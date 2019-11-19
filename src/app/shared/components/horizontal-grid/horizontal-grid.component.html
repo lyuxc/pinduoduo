@@ -1,0 +1,23 @@
+<!-- <input 
+    type="text" 
+    [value]="username" 
+    (input)="username = $event.target.value"
+> -->  
+
+<!-- <input 
+    type="text" [(ngModel)]="username"
+>
+<span>你好，{{username}}</span> -->
+
+<!-- <input 
+    type="text" [ngModel]="username" (ngModelChange)="username = $event"
+>
+<span>你好，{{username}}</span> -->
+
+<input 
+    type="text" 
+    [value]="username" 
+    (input)="username = $event.target.value"
+>
+<p (click)="handleClick()">你好，{{username}}</p>
+{{ result }}

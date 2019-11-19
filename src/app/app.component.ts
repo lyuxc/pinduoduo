@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { TopMenu, ImageSlider, ImageSliderComponent } from './components'
+import { TopMenu, ImageSlider, ImageSliderComponent } from './shared/components'
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { TopMenu, ImageSlider, ImageSliderComponent } from './components'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // @ViewChild(ImageSliderComponent) imgSlider: ImageSliderComponent;
+  // @ViewChild('imageSlider') imgSlider: ImageSliderComponent;
   scrollableTabBgColor = 'red';
   topMenus: TopMenu[] = [
     {
@@ -72,19 +72,19 @@ export class AppComponent {
 
   imageSliders: ImageSlider[] = [
     {
-      imgUrl: 'http://placehold.it/350x220',
+      imgUrl: 'http://placehold.it/350x161',
       link: '',
       caption: '第1张'
     },{
-      imgUrl: 'http://placehold.it/350x220',
+      imgUrl: 'http://placehold.it/350x162',
       link: '',
       caption: '第2张'
-    },{
-      imgUrl: 'http://placehold.it/350x220',
+    },{ 
+      imgUrl: 'http://placehold.it/350x163',
       link: '',
       caption: '第3张'
     },{
-      imgUrl: 'http://placehold.it/350x220',
+      imgUrl: 'http://placehold.it/350x164',
       link: '',
       caption: '第4张'
     }
@@ -96,6 +96,8 @@ export class AppComponent {
     this.scrollableTabBgColor = colors[idx];
     console.log(topMenu);
   }
+
+  usernamesss = '';
 
   ngAfterViewInit(): void {
     // console.log(this.imgSlider)
