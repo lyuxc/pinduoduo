@@ -97,8 +97,6 @@ export class AppComponent {
     console.log(topMenu);
   }
 
-  usernamesss = '';
-
   ngAfterViewInit(): void {
     // console.log(this.imgSlider)
   }

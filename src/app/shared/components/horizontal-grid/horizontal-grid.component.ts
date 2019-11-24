@@ -1,6 +1,11 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
-import { Emoji, Confirmavle } from '../../decorators';
+
+export interface Channel {
+  id: number;
+  icon: string;
+  title: string;
+  link: string;
+}
 
 @Component({
   selector: 'app-horizontal-grid',
@@ -9,28 +14,53 @@ import { Emoji, Confirmavle } from '../../decorators';
 })
 export class HorizontalGridComponent implements OnInit {
   
-  private _username = '';
+  channels: Channel[] = [
+    { 
+      id: 1,
+      title: '限时秒杀1',
+      icon: 'http://placehold.it/60x60',
+      link: 'hot'
+    },{ 
+      id: 2,
+      title: '限时秒杀2',
+      icon: 'http://placehold.it/60x60',
+      link: 'hot'
+    },{ 
+      id: 3,
+      title: '限时秒杀3',
+      icon: 'http://placehold.it/60x60',
+      link: 'hot'
+    },{ 
+      id: 4,
+      title: '限时秒杀4',
+      icon: 'http://placehold.it/60x60',
+      link: 'hot'
+    },{ 
+      id: 5,
+      title: '限时秒杀5',
+      icon: 'http://placehold.it/60x60',
+      link: 'hot'
+    },{ 
+      id: 6,
+      title: '限时秒杀6',
+      icon: 'http://placehold.it/60x60',
+      link: 'hot'
+    },{ 
+      id: 7,
+      title: '限时秒杀7',
+      icon: 'http://placehold.it/60x60',
+      link: 'hot'
+    },{ 
+      id: 8,
+      title: '限时秒杀8',
+      icon: 'http://placehold.it/60x60',
+      link: 'hot'
+    }
+  ]
 
-  @Output() usernameChange = new EventEmitter();
-  @Emoji() result = 'Hello';
   constructor() { }
 
   ngOnInit() {
   } 
-
-  @Input()
-  public get username() : string {
-    return this._username;
-  }
-
-  public set username(value: string) {
-    this._username = value;
-    this.usernameChange.emit(value);
-  }
-
-  // @Confirmavle('点击已执行');
-  // handleClick() {
-  //   console.log('点击已执行');
-  // }
 
 }
