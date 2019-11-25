@@ -13,54 +13,35 @@ export interface Channel {
   styleUrls: ['./horizontal-grid.component.css']
 })
 export class HorizontalGridComponent implements OnInit {
-  
-  channels: Channel[] = [
-    { 
-      id: 1,
-      title: '限时秒杀1',
-      icon: 'http://placehold.it/60x60',
-      link: 'hot'
-    },{ 
-      id: 2,
-      title: '限时秒杀2',
-      icon: 'http://placehold.it/60x60',
-      link: 'hot'
-    },{ 
-      id: 3,
-      title: '限时秒杀3',
-      icon: 'http://placehold.it/60x60',
-      link: 'hot'
-    },{ 
-      id: 4,
-      title: '限时秒杀4',
-      icon: 'http://placehold.it/60x60',
-      link: 'hot'
-    },{ 
-      id: 5,
-      title: '限时秒杀5',
-      icon: 'http://placehold.it/60x60',
-      link: 'hot'
-    },{ 
-      id: 6,
-      title: '限时秒杀6',
-      icon: 'http://placehold.it/60x60',
-      link: 'hot'
-    },{ 
-      id: 7,
-      title: '限时秒杀7',
-      icon: 'http://placehold.it/60x60',
-      link: 'hot'
-    },{ 
-      id: 8,
-      title: '限时秒杀8',
-      icon: 'http://placehold.it/60x60',
-      link: 'hot'
-    }
-  ]
 
+  @Input() cols = 8;
+  @Input() displayCols = 5;
+  sliderMargin = "0";
+  
   constructor() { }
 
   ngOnInit() {
   } 
 
+  
+  public get scrollable() : boolean {
+    return this.cols > this.displayCols;
+  }
+
+  
+  public get templateRows() : string {
+    return `minmax(auto, max-content)`;
+  }
+
+  
+  public get templateColumns() : string {
+    return `repeat(${this.cols}, calc((100vw - ${this.displayCols * 0.4}rem) / ${this.displayCols}))`;
+  }
+
+  public handleScroll(e) {
+    this.sliderMargin = `0 ${(100 * e.target.scrollLeft) / e.target.scrollWidth} %`
+
+  }
+
+  
 }
